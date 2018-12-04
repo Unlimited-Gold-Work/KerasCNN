@@ -6,7 +6,7 @@ Xtrain = None
 Ytrain = None
 model = None
 
-CNN = cnnlib.CNNmodel('TestData')
+CNN = cnnlib.CNNmodel('TestData')  #傳入圖片集資料夾
 CNN.connectpath()
 CNN.readData()
 #print('picarray:',len(CNN.getarray()))
