@@ -1,0 +1,45 @@
+使用參考網址
+https://hk.saowen.com/a/a5acc459ca20738c8e83b8a3fec66e97b4d674da90eb7dfcf2ded9d0863c845c
+
+os.path.dirname(__file__)  獲取當前文檔的所在路徑
+print (os.path.dirname(os.path.dirname(__file__))) 獲取當前文檔的所在目錄的上級路徑
+
+os.name()——判斷現在正在實用的平台，Windows 返回 ‘nt‘; Linux 返回’posix‘
+
+os.getcwd()——得到當前工作的目錄。
+
+os.remove()——刪除指定文檔
+
+os.rmdir()——刪除指定目錄
+
+os.listdir()——指定所有目錄下所有的文檔和目錄名
+
+os.mkdir()——創建目錄
+
+os.path.isfile()——判斷指定對象是否為文檔。是返回True,否則False
+
+os.path.isdir()——判斷指定對象是否為目錄。是True,否則False
+
+os.path.exists()——檢驗指定的對象是否存在。是True,否則False
+
+os.path.split()——返回路徑的目錄和文檔名
+
+os.getcwd()——獲得當前工作的目錄
+
+os.system()——執行shell命令
+
+os.chdir()——改變目錄到指定目錄
+
+os.path.getsize()——獲得文檔的大小，如果為目錄，返回0
+
+os.path.abspath()——獲得絕對路徑
+
+os.path.join(path, name)——連接目錄和文檔名
+
+os.path.basename(path)——返回文檔名
+
+os.path.dirname(path)——返回文檔路徑
+
+system()用來執行系統命令  ex os.system(‘Python all_test.py‘)
+
+os.path.getmtime(path)  #返回在此path下最後一次修改的時間

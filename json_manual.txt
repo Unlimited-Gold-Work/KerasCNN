@@ -1,0 +1,25 @@
+參考文獻https://www.cnblogs.com/wswang/p/5411826.html
+
+將python obj編碼為json格式(str)
+json.dumps(obj, skipkeys=False, ensure_ascii=True, 
+check_circular=True, allow_nan=True, cls=None, 
+indent=None, separators=None, encoding="utf-8", 
+default=None, sort_keys=False, **kw)
+
+json.dump(...)與dumps一致,差別於dump()可以與file module結合,並可輸出至文件
+
+解碼json(str)回傳python obj
+json.loads(s[, encoding[, cls[, object_hook[, parse_float[, 
+parse_int[, parse_constant[, object_pairs_hook[, **kw]]]]]]]])
+
+json.load(...)與loads一致,差別於load()可以與file module結合
+
+轉換對照表
+python				json(基本上是javascript的基本型態)
+dict				object
+list,tuple			array
+str,unicode			string
+int,long,float			number
+True				true
+False				false
+None				null

@@ -1,0 +1,35 @@
+參考文獻https://medium.com/@yehjames/%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90-%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92-%E7%AC%AC5-1%E8%AC%9B-%E5%8D%B7%E7%A9%8D%E7%A5%9E%E7%B6%93%E7%B6%B2%E7%B5%A1%E4%BB%8B%E7%B4%B9-convolutional-neural-network-4f8249d65d4f
+https://brohrer.mcknote.com/zh-Hant/how_machine_learning_works/how_convolutional_neural_networks_work.html
+https://keras-cn.readthedocs.io/en/latest/layers/convolutional_layer/
+
+函式參考https://ithelp.ithome.com.tw/articles/10192028
+
+標準化/規一化
+https://hk.saowen.com/a/ee8f4a328e55f10a3c97d2c8688d4fc79c3fd933e3d95bffed947ec8402cc1fe
+
+from keras.models import Sequential
+from keras.layers import Dense,Dropout,Flatten,Conv2D,MaxPooling2D
+
+model = Sequential()  # 建立循序model
+
+# 一層層建上去
+model.add(Conv2D(filters=16,kernel_size(5,5),padding='same',input_shape=(28,28,1),activation='relu'))
+
+-- filter(卷積核數目)  
+   kernel_size(卷積5x5) 
+   padding(邊界部分的卷積處理) 'same'保留邊界處 'valid'邊界不處理
+   input_shape需要3維  (row,column,channel),輸入需要的矩陣
+   activation(激活函數)	
+
+MaxPooling2D(pool_size=(2, 2), strides=None, padding='valid', data_format=None)
+
+--pool_size(tuple型態,垂直與水平方向(x,y),NxN的池化核)
+  strides(tuple型態,移動步長值)
+  padding(邊界部分,valid or same)
+  data_format(字符串,channels_last(預設值)指channel資料放最後一維 或 channels_first指channel放在第二維,第一維為樣本數
+
+dropout(rate)
+
+--rate(比例,為了去掉部分神經元,防止overfitting)
+
+維度需要與model設定的一樣
