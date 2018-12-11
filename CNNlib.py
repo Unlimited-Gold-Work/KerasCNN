@@ -152,14 +152,13 @@ class CNNmodel():
 	def createmodel(self,model):
 		model.add(Conv2D(filters=2,kernel_size=(3,3),padding='same',
 input_shape=(32,32,1),activation='relu'))
-		model.add(Dropout(0.25))
 		model.add(MaxPooling2D(pool_size=(2,2)))
-		model.add(Conv2D(filters=2,kernel_size=(3,3),padding='same',activation='relu'))
-		model.add(Dropout(0.25))
+		model.add(Conv2D(filters=3,kernel_size=(3,3),padding='same',activation='relu'))
 		model.add(MaxPooling2D(pool_size=(2,2)))
+		model.add(Dropout(0.25))
 		model.add(Flatten())
-		model.add(Dense(3,activation='relu'))
-		model.add(Dropout(0.25))
+		model.add(Dense(7,activation='relu'))
+		model.add(Dropout(0.5))
 		model.add(Dense(len(self.kinds),activation='softmax'))
 		return model  
 
@@ -168,7 +167,7 @@ input_shape=(32,32,1),activation='relu'))
 
 	def train(self,model,Xtrain,Ytrain):
 		model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
-		model.fit(x=Xtrain,y=Ytrain,validation_split=0.0,epochs=10,batch_size=2,verbose=2)
+		model.fit(x=Xtrain,y=Ytrain,validation_split=0.0,epochs=300,batch_size=2,verbose=2)
 		return model
 
 	def getevaluate(self,model,Xtrain,Ytrain):
@@ -187,10 +186,13 @@ input_shape=(32,32,1),activation='relu'))
 
 	def answer(self,predictlist):
 		print(np.array(predictlist))
+		biggest = -1;
 		for select in range(len(self.kinds)):
-			if predictlist[0][select]==1.0:
-				print('select:',select)
-				print("this is a %s"%self.kinds[select])
+			if predictlist[0][select] > biggest:
+				print('rate:',predictlist[0][select])
+				biggest = select
+		print('select:',biggest)
+		print("this is a %s"%self.kinds[biggest])
 
 
 
